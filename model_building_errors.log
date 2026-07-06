@@ -1,0 +1,6 @@
+2026-07-02 17:19:57,186 - model_building - ERROR - Unexpected error occurred while loading the data: [Errno 2] No such file or directory: './data/processed/train_bow.csv'
+2026-07-02 17:19:57,190 - model_building - ERROR - Failed to complete the model building process: [Errno 2] No such file or directory: './data/processed/train_bow.csv'
+2026-07-03 11:32:41,428 - model_building - ERROR - Unexpected error occurred while loading the data: [Errno 2] No such file or directory: './data/processed/train_bow.csv'
+2026-07-03 11:32:41,429 - model_building - ERROR - Failed to complete the model building process: [Errno 2] No such file or directory: './data/processed/train_bow.csv'
+2026-07-03 12:52:14,730 - model_building - ERROR - Error during model training: The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.
+2026-07-03 12:52:14,732 - model_building - ERROR - Failed to complete the model building process: The 'liblinear' solver does not support multiclass classification (n_classes >= 3). Either use another solver or wrap the estimator in a OneVsRestClassifier to keep applying a one-versus-rest scheme.

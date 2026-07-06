@@ -1,52 +1,23 @@
-# =========================
-# Stage 1: Builder
-# =========================
-FROM python:3.10-slim-bookworm AS builder
+# install python --> base layer
+FROM python:3.14.6
 
-# Set work directory
-WORKDIR /app
+# set our working directory
+WORKDIR /app/
 
-# Install system dependencies only if needed for compilation
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential gcc && \
-    rm -rf /var/lib/apt/lists/*
+ # copy the files
+ COPY ./flask_app/ .
 
-# Copy only requirements to leverage caching
-COPY ./flask_app/requirements.txt .
+ # install packages
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Install dependencies using pre-built binaries where possible
-RUN pip install --prefix=/install --no-cache-dir --prefer-binary -r requirements.txt
+# install nltk related packages
+RUN python -m nltk.downloader stopwords wordnet 
 
-# Download NLTK data inside builder (isolated)
-RUN mkdir -p /nltk_data && \
-    PYTHONPATH=/install/lib/python3.10/site-packages \
-    python -m nltk.downloader -d /nltk_data stopwords wordnet
-
-# Remove build tools to shrink builder layer
-RUN apt-get purge -y build-essential gcc && apt-get autoremove -y
-
-
-# =========================
-# Stage 2: Final Image
-# =========================
-FROM python:3.10-slim-bookworm AS final
-
-# Set working directory
-WORKDIR /app
-
-# Copy installed Python packages and NLTK data from builder
-COPY --from=builder /install /usr/local
-ENV NLTK_DATA=/usr/local/nltk_data
-COPY --from=builder /nltk_data ${NLTK_DATA}
-
-# Copy only necessary application files (reduces size)
-COPY ./flask_app/app.py .
-COPY ./flask_app/templates/ ./templates/
+# copy the model and vectorizer files 
 COPY ./models/ ./models/
 
-# Add environment variable and expose port
-ENV PORT=5000
+#expose port for the flask app
 EXPOSE 5000
 
-# Run the Flask app
+# final cmd statement --> run the container
 CMD ["python", "app.py"]

@@ -9,3 +9,60 @@ I am happy today., Happpy
 bhot hui aam indagi, chalo jiye mentos zindagi, Neutral 
 This is a service i started using docker compose and i am happy that it works as planned, Neutral 
 I am happy , Happpy 
+ I am happy. MY model is working., Neutral 
+I am happy.
+, Neutral 
+, Neutral 
+I am sad, Neutral 
+I am pretty happy. Got a new job, Neutral 
+I am happy, Neutral 
+I am happy, Neutral 
+, Neutral 
+I am happy, Neutral 
+I am sad, Neutral 
+I am sad, Neutral 
+I am sad, Neutral 
+I am happy, happiness 
+i am happy, Neutral 
+i am happy, Neutral 
+i am happy, Neutral 
+yay got a new job I am happy, Neutral 
+I am happy, Neutral 
+I got a new job and I am happy, Neutral 
+I am happy today., Neutral 
+I am happy, Happy
+Input: I am happy | Prediction: Happy
+Input: i am sad | Prediction: Sad
+Input: I am good | Prediction: Neutral
+Input: I am very happy | Prediction: Happy
+Input: I am happy
+ | Prediction: Happy
+Input: I am sad ?
+ | Prediction: Sad
+Input: I am sad | Prediction: Sad
+Input:  | Prediction: Neutral
+Input:  | Prediction: Neutral
+Input:  | Prediction: Neutral
+Input:  | Prediction: Neutral
+Input:  | Prediction: Neutral
+Input: I am happy | Prediction: Happy
+Input: I am happy | Prediction: Happy
+Input: I am happy | Prediction: Happy
+Input: I am happy | Prediction: Happy
+Input: I am sad | Prediction: Sad
+Input: I am good | Prediction: Neutral
+Input: I got a new job today I am excited about it  | Prediction: Happy
+Input: Good vibes only | Prediction: Neutral
+Input: Good to see you | Prediction: Neutral
+Input: I fall today | Prediction: Neutral
+Input: I am sad  | Prediction: Sad
+Input: I am sad that I fell today | Prediction: Sad
+Input: Oh no | Prediction: Neutral
+Input: I am happy | Prediction: Happy
+Input: I am sad | Prediction: Sad
+Input: I am very excited  | Prediction: Happy
+Input: I am dull today | Prediction: Neutral
+Input: i am not good today
+ | Prediction: Neutral
+Input: I am not good today | Prediction: Neutral
+Input: I am happy today | Prediction: Happy

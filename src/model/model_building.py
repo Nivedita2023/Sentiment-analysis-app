@@ -39,7 +39,7 @@ def load_data(file_path: str) -> pd.DataFrame:
 def train_model(X_train: np.ndarray, y_train: np.ndarray) -> LogisticRegression:
     """Train the Logistic Regression model."""
     try:
-        clf = LogisticRegression(C=1, solver='liblinear', penalty='l2')
+        clf = LogisticRegression(solver='lbfgs', max_iter=1000)
         clf.fit(X_train, y_train)
         logger.debug('Model training completed')
         return clf
@@ -61,11 +61,11 @@ def main():
     try:
 
         train_data = load_data('./data/processed/train_bow.csv')
-        X_train = train_data.iloc[:, :-1].values
-        y_train = train_data.iloc[:, -1].values
+        X_train = train_data.drop('label', axis=1).values
+        y_train = train_data['label'].values
 
         clf = train_model(X_train, y_train)
-        
+                
         save_model(clf, 'models/model.pkl')
     except Exception as e:
         logger.error('Failed to complete the model building process: %s', e)
