@@ -9,7 +9,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 # load the port info from env vars
-port = int(os.environ.get("PORT", 5000))
+port = int(os.environ.get("PORT",5000))
 
 # make the flask app
 app = Flask(__name__)
@@ -57,13 +57,14 @@ def predict():
     # Create audit folder if it doesn't exist
     os.makedirs("audit", exist_ok=True)
 
-    # Save prediction
-    with open("audit/predictions.txt", "a") as file:
-        file.write(f"Input: {input_text} | Prediction: {final_result}\n")
-
+    # Save prediction in text file
+    with(open("audit/predictions.txt", "a")) as f:
+        f.write(f"Input: {input_text} | Prediction: {final_result}\n")
+        
     # Display result on webpage
     return render_template("index.html", result=final_result)    
 
 if __name__ == "__main__":
-    # start the flask server
+    # Start the Flask app 
+    # start the app on the specified port 
     app.run(host="0.0.0.0", port=port)

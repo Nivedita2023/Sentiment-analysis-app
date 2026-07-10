@@ -1,0 +1,22 @@
+name: my-ml-app
+
+services:
+  sentiment-analysis-app:
+    build: .
+    container_name: sentiment-analysis
+    environment:
+        - PORT=8000
+    ports:
+        - "8000:8000"
+    volumes:
+        - type: bind
+          source: ./audit/
+          target: /app/audit/
+
+  redis:
+      image: redis:7
+      container_name: redis-server
+      ports:
+        - "6379:6379"
+
+      
